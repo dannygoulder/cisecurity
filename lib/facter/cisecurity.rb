@@ -7,6 +7,8 @@ Facter.add('cisecurity') do
   require 'time'
   require 'etc'
 
+  confine :kernel => "Linux"
+
   # Figure out os-specific stuff up top
   os_name = if Facter.value(:puppetversion).to_i >= 4
               Facter.value(:os)[:name]
